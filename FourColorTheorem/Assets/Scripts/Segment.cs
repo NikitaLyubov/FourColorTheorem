@@ -20,24 +20,28 @@ public class Segment : MonoBehaviour
 
     void Start()
     {
-        _neighbourSegments = new List<Segment>();
         _image = GetComponent<Image>();
         _startColor = _image.color;
 
         _errors = 0;
     }
 
-    public Color GetCurrentColor()
+    public Color Color()
     {
         return _image.color;
     }
 
+    public void IncrementErrors()
+    {
+        _errors++;
+    }
+
     private void OnMouseDown()
     {
-        _color = ChoseColor.Color;
-
-        if (_canPaint)
+        if (_canPaint && ChoseColor.IsChosen)
         {
+            _color = ChoseColor.Color;
+
             if (_image.color == _color)
             {
                 Clear();
@@ -48,15 +52,20 @@ public class Segment : MonoBehaviour
 
                 _image.color = _color;
 
-                _errors = 0;
+                int newErrors = 0;
 
                 for (int i = 0; i < _neighbourSegments.Count; ++i)
                 {
-                    if (_neighbourSegments[i].GetCurrentColor() == _image.color)
-                        _errors++;
+                    if (_neighbourSegments[i].Color() == _image.color)
+                    {
+                        newErrors++;
+                        _neighbourSegments[i].IncrementErrors();
+                    }
                 }
 
-                _event.Invoke(painted, _errors);
+                _event.Invoke(painted, newErrors - _errors);
+
+                _errors = newErrors;
             }
         }
     }
@@ -73,9 +82,9 @@ public class Segment : MonoBehaviour
 
     public void Clear()
     {
-        _image.color = _startColor; 
-        
         _event.Invoke(-1, -_errors);
         _errors = 0;
+
+        _image.color = _startColor;
     }
 }

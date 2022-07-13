@@ -14,9 +14,7 @@ public class Misstakes : MonoBehaviour
 
     public void UpdateErrors(int painted, int errors)
     {
-        _errors += errors;
-
-        _errors = _errors < 0 ? 0 : _errors;
+        _errors = _errors + errors < 0 ? 0 : _errors + errors;
 
         _text.text = $"Îøèáêè: {_errors}";
     }

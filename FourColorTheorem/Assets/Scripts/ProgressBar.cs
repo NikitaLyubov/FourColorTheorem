@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Slider))]
 public class ProgressBar : MonoBehaviour
 {
     [SerializeField]
@@ -13,7 +12,7 @@ public class ProgressBar : MonoBehaviour
     [SerializeField]
     private GameObject _nextButton;
 
-    private Slider _slider;
+    private RectTransform _transform;
 
     private int _errors = 0;
     private int _painted = 0;
@@ -21,7 +20,7 @@ public class ProgressBar : MonoBehaviour
     private void Start()
     {
         _segments = _figure.transform.childCount;
-        _slider = GetComponent<Slider>();
+        _transform = GetComponent<RectTransform>();
 
         UpdateProgress(0, 0);
     }
@@ -33,7 +32,7 @@ public class ProgressBar : MonoBehaviour
 
         int res = _painted - _errors < 0 ? 0 : _painted - _errors;
 
-        _slider.value = (float)res / _segments;
+        _transform.localScale = new Vector2((float)res / _segments * 100, 100);
 
         _nextButton.SetActive(_painted == _segments && _errors == 0);
     }
