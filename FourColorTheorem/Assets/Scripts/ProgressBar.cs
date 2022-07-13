@@ -28,11 +28,8 @@ public class ProgressBar : MonoBehaviour
 
     public void UpdateProgress(int painted, int errors)
     {
-        _errors += errors;
-        _painted += painted;
-
-        _errors = _errors < 0 ? 0 : _errors;
-        _painted = _painted < 0 ? 0 : _painted;
+        _errors = _errors + errors < 0 ? 0 : _errors + errors;
+        _painted = _painted + painted < 0 ? 0 : _painted + painted;
 
         int res = _painted - _errors < 0 ? 0 : _painted - _errors;
 

@@ -6,10 +6,7 @@ using UnityEngine.UI;
 public class Segment : MonoBehaviour
 {
     [SerializeField]
-    private List<Segment> _neighbourSegments = new List<Segment>();
-
-    //[SerializeField]
-    //private SegmentPaintedEvent _event;
+    private List<Segment> _neighbourSegments;
 
     [SerializeField]
     private UnityEvent<int, int> _event;
@@ -23,6 +20,7 @@ public class Segment : MonoBehaviour
 
     void Start()
     {
+        _neighbourSegments = new List<Segment>();
         _image = GetComponent<Image>();
         _startColor = _image.color;
 
