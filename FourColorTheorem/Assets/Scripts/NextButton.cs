@@ -12,7 +12,7 @@ public class NextButton : MonoBehaviour
     private int _currentFigureIndex = 0;
 
     [SerializeField]
-    private ProgressBar _progressBar;
+    private UnityEvent<Figure> _newFigureSelected;
 
     public void NextFigure()
     {
@@ -24,7 +24,7 @@ public class NextButton : MonoBehaviour
 
         SetCurrentFigureActive(true);
 
-        _progressBar.SetNewFigure(_figures[_currentFigureIndex].gameObject);
+        _newFigureSelected?.Invoke(_figures[_currentFigureIndex]);
     }
 
     private void SetCurrentFigureActive(bool active)

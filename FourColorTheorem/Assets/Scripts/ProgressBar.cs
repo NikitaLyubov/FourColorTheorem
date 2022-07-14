@@ -37,7 +37,7 @@ public class ProgressBar : MonoBehaviour
         _nextButton.SetActive(_painted == _segments && _errors == 0);
     }
 
-    public void SetNewFigure(GameObject figure)
+    public void SetNewFigure(Figure figure)
     {
         _errors = 0;
         _painted = 0;
