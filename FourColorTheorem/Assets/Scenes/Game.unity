@@ -1148,8 +1148,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 269.5, y: -117}
-  m_SizeDelta: {x: 480, y: 70}
+  m_AnchoredPosition: {x: 219, y: -123}
+  m_SizeDelta: {x: 276.77, y: 192.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &180570989
 MonoBehaviour:
@@ -1184,7 +1184,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u041D\u0410\u0417\u0412\u0410\u041D\u0418\u0415 \u0418\u0413\u0420\u042B"
+  m_Text: 'FOUR
+
+    COLORS
+
+    THEOREM'
 --- !u!222 &180570990
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3411,7 +3415,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 219, y: -247}
+  m_AnchoredPosition: {x: 219, y: -285}
   m_SizeDelta: {x: 374, y: 98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &905532273
