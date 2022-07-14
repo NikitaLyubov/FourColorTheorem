@@ -6,7 +6,7 @@ public class Figure : MonoBehaviour
 {
     private void OnDisable()
     {
-        for (int i = transform.childCount; i >= 0; --i)
+        for (int i = transform.childCount - 1; i >= 0; --i)
         {
             transform.GetChild(i).GetComponent<Segment>().Clear();
         }
